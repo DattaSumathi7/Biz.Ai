@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biz.ai - AI Business Solutions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background-color: #f5f7fa;
+      color: #333;
+    }
+    header {
+      background: #0f62fe;
+      color: white;
+      padding: 1.5rem 1rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img {
+      width: 50px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    .title-section {
+      text-align: center;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    .title-section h1 {
+      font-size: 2.5rem;
+    }
+    .title-section p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slideshow {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+    .slide {
+      flex: 0 0 auto;
+      max-width: 400px;
+      position: relative;
+      scroll-snap-align: start;
+      border-radius: 10px;
+      overflow: hidden;
+      animation: zoomIn 1s ease-in-out;
+    }
+    .slide img {
+      width: 100%;
+      display: block;
+    }
+    .caption {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 0.5rem;
+      width: 100%;
+      text-align: center;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .section {
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .features, .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card i {
+      font-size: 2rem;
+      color: #0f62fe;
+      margin-bottom: 0.5rem;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    input, textarea, button {
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background: #0f62fe;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #0842a0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: white;
+    }
+
+    /* Modal Sign-In Form */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      animation: fadeIn 0.4s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#"><img src="https://i.postimg.cc/CKddfBWv/Logo1.jpg" alt="Biz.ai Logo" /></a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+      <a href="#" onclick="document.getElementById('signinModal').style.display='flex'">Sign In</a>
+    </nav>
+  </header>
+
+  <section class="title-section">
+    <h1>Biz.ai</h1>
+    <p>Empowering Businesses with Smart AI Solutions</p>
+  </section>
+
+  <div class="slideshow">
+    <div class="slide"><img src="https://i.postimg.cc/9QDjddQq/Logo2.jpg" alt="AI App Slide 1"><div class="caption">AI-powered Analytics Platform</div></div>
+    <div class="slide"><img src="https://i.postimg.cc/prLS2v9n/Logo3.jpg" alt="AI App Slide 2"><div class="caption">Real-Time Business Automation</div></div>
+    <div class="slide"><img src="https://i.postimg.cc/1XT12XWz/Logo4.jpg" alt="AI App Slide 3"><div class="caption">Secured Cloud Intelligence</div></div>
+  </div>
+
+  <section class="section" id="features">
+    <h2>Our Features</h2>
+    <div class="features">
+      <div class="card"><i class="fas fa-brain"></i><h3>AI Analytics</h3><p>Real-time data insights for smart decisions.</p></div>
+      <div class="card"><i class="fas fa-robot"></i><h3>Automation</h3><p>Boost efficiency with automated workflows.</p></div>
+      <div class="card"><i class="fas fa-lock"></i><h3>Secure Cloud</h3><p>Protect data with enterprise-grade security.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="team">
+    <h2>Meet Our Team</h2>
+    <div class="team">
+      <div class="card"><h3>Ayesha</h3><p>Founder & CEO</p></div>
+      <div class="card"><h3>Logeswari</h3><p>CTO & AI Specialist</p></div>
+      <div class="card"><h3>Gracy</h3><p>UI/UX Designer</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Biz.ai - All rights reserved.</p>
+  </footer>
+
+  <!-- Sign In Modal -->
+  <div id="signinModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('signinModal').style.display='none'">&times;</span>
+      <h2>Sign In</h2>
+      <form>
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    window.onclick = function(event) {
+      const modal = document.getElementById('signinModal');
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
